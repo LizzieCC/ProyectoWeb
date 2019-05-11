@@ -1,0 +1,208 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Preparate+</title>
+
+    <link rel="shortcut icon" type="image/png" href="./img/fav.png"/>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="./css/master.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+
+    <!-- SIDENAV -->
+        <ul id="slide-out" class="sidenav sidenav-fixed">
+          <li><img src="./img/LogoBlanco.png" alt="Preparate+" class="logo"></li>
+          <li><a href="/dashboard" class="waves-effect"><i class="material-icons">dashboard</i>Inicio</a></li>
+          <!-- <li><div class="divider"></div></li> -->
+          <li>
+            <ul class="collapsible">
+              <li class="active">
+                <div class="collapsible-header waves-effect"><i class="material-icons">create</i>Crear Pregunta</div>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="/opcionmultiple" class="waves-effect">Opcion Múltiple</a></li>
+                    <li><a href="/opciondeimagenes" class="waves-effect">Opción con Imágenes</a></li>
+                    <li class="currentPage"><a href="#" class="waves-effect">Abierta</a></li>
+                    <li><a href="/relacionar" class="waves-effect">Relacionar</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header waves-effect"><i class="material-icons">view_list</i>Ver avance</div>
+                <div class="collapsible-body">
+                  <ul>
+                      <li><a href="/avanceMateria" class="waves-effect">Por Materia</a></li>
+                      <li><a href="/avanceAlumno" class="waves-effect">Por Alumno</a></li>
+                  </ul>
+                </div>
+              </li>
+              <li>
+                <div class="collapsible-header waves-effect"><i class="material-icons">school</i>Administrar Contenido</div>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="/administrarMaterias" class="waves-effect">Materias</a></li>
+                    <li><a href="#" class="waves-effect">Temas</a></li>
+                    <!-- <li><a href="#" class="waves-effect">Preguntas</a></li> -->
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          
+          <li><a href="#" class="waves-effect" id="logOut"><i class="material-icons">power_settings_new</i>Cerrar sesión</a></li>
+
+        </ul>
+
+        <!-- MAIN CONTENT -->
+        <div class="mainContent grey lighten-5">
+
+          <header>
+            <div class="hamburguerMenu valign-wrapper">
+              <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i> Menú</a>
+            </div>
+            <h3>Agregar Pregunta</h3>
+            <h1>Respuesta Abierta</h1>
+          </header>
+
+          <div class="container">
+            <div class="row">
+
+              <!-- MAIN FORM -->
+              <form id="addQuestion" onsubmit="add()">
+
+                <div class="row">
+                  <!-- SELECCIONA MATERIA -->
+                  <div class="input-field col s12">
+                    <select id="selectMateria" required>
+                      <option value="" disabled selected>Selecciona una Materia</option>
+                    </select>
+                    <label>Materia:*</label>
+                  </div>
+
+                  <!-- SELECCIONA TEMA DE LA MATERIA -->
+                  <div class="input-field col s12">
+                    <select id="selectTema" required>
+                      <option value="" disabled selected>Selecciona primero una materia</option>
+                    </select>
+                    <label>Tema:*</label>
+                  </div>
+
+                  <div class="input-field col s12">
+                    <input id="subtema" type="text" class="validate">
+                    <label for="subtema">Subtema</label>
+                  </div>
+                </div>
+
+
+                <!-- DATOS DE LA PREGUNTA -->
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="pregunta" type="text" class="validate" required>
+                    <label for="pregunta">Pregunta*</label>
+                  </div>
+
+                  <div class="input-field col s12">
+                    <input id="pregunta_img" type="url" class="validate">
+                    <label for="pregunta_img">Imágen de pregunta (URL)</label>
+                    <span class="helper-text">Si la pregunta es una imágen escribe el link de la misma</span>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="exp_img" type="url" class="validate">
+                    <label for="exp_img">Imagen Explicativa (URL)</label>
+                    <span class="helper-text">Escribe el link de la imagen explicativa del problema</span>
+                  </div>
+
+                  <div class="input-field col s12">
+                    <input id="exp_text" type="text" class="validate">
+                    <label for="exp_text">Descripción de la pregunta</label>
+                  </div>
+                </div>
+
+                <div class="row">
+                  <div class="input-field col s12">
+                    <input id="respuesta" type="text" class="validate" required>
+                    <label for="respuesta">Respuesta Correcta*</label>
+                    <span class="helper-text">Los alumnos deberán de escribirla exactamente igual</span>
+                  </div>
+                </div>
+
+
+                <button class="btn waves-effect waves-light right" type="submit">Guardar
+                  <i class="material-icons left">cloud</i>
+                </button>
+
+              </form>
+
+            </div>
+          </div>
+
+
+
+          <!-- FOOTER -->
+          <footer class="page-footer teal darken-1">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <p class="grey-text text-lighten-4">Preparate+ es un proyecto desarollado por alumnos del Tecnológico de Monterrey, Campus Monterrey.</p>
+                </div>
+                <!-- <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Links</h5>
+                  <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  </ul>
+                </div> -->
+              </div>
+            </div>
+            <div class="footer-copyright">
+              <div class="container">
+              © 2019 Desarrollado por <a href="#" class="grey-text text-lighten-4">PurpleDots</a>
+              </div>
+            </div>
+          </footer>
+
+          <!-- END OF MAIN CONTENT -->
+        </div>
+
+
+
+        <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
+        <script>
+          // Initialize Firebase
+          var config = {
+            apiKey: "AIzaSyBfsPrlJaEes0mdEA-eNgiTPx56J1nbBXU",
+            authDomain: "preparate-mas.firebaseapp.com",
+            databaseURL: "https://preparate-mas.firebaseio.com",
+            projectId: "preparate-mas",
+            storageBucket: "preparate-mas.appspot.com",
+            messagingSenderId: "101797547516"
+          };
+          firebase.initializeApp(config);
+
+          //Fireabse references
+          const auth = firebase.auth();
+          var database = firebase.database();
+        </script>
+
+      <!-- SCRIPTS -->
+      <script src="https://code.jquery.com/jquery-3.4.0.slim.js" integrity="sha256-milezx5lakrZu0OP9b2QWFy1ft/UEUK6NH1Jqz8hUhQ=" crossorigin="anonymous"></script>
+      <!-- Compiled and minified JavaScript -->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+      <script src="./js/index.js" charset="utf-8"></script>
+      <script src="./js/getMateriasTemas.js" charset="utf-8"></script>
+      <script src="./js/addQuestionOpen.js" charset="utf-8"></script>
+
+  </body>
+</html>
