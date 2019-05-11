@@ -1,4 +1,3 @@
-
 $('#login_button').on('click', function(){
     console.log('aqui entre perro');
     // cargar email y password
