@@ -27,7 +27,7 @@ router.post('/users', users.createUser)
 //Create subject
 router.post('/subjects',subjects.createSubject)
 //Delete subject
-router.delete('/subjects',subjects.deleteSubject)
+router.delete('/subjects/:id',subjects.deleteSubject)
 //Update subject
 
 //Get all subjects
