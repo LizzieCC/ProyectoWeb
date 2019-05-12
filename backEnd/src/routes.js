@@ -2,7 +2,9 @@ const express = require('express')
 const router = express.Router()
 
 const users = require('./controllers/users.js')
-const todos = require('./controllers/questions.js')
+const subjects = require('./controllers/subjects.js')
+const topics = require('./controllers/topics.js')
+const questions = require('./controllers/questions.js')
 const auth = require('./middleware/auth')
 
 const cors = require('cors')
@@ -21,12 +23,29 @@ router.patch('/users', auth, users.updateUser)
 //Create Users
 router.post('/users', users.createUser)
 
+//SUBJECT (Materias)
+//Create subject
+
+//Delete subject
+
+//Update subject
+
+//Get all subjects
+
+//TOPICS
+//Create topic
+
+//Delete topic 
+
+//Update topic
+
+//Get all topics (by subject)
 
 //QUESTIONS------------------------------------
-//Get All Questions
 //Add question
 //Delete Question
 //Update Question
+//Get Questions by topic
 
 //HANDLE ERRORS---------------------------------
 router.get('*', function(req, res) {
