@@ -36,4 +36,10 @@ app.listen(port, function() {
     -Imagen de Explicación
     -Tema (ref Tema _id)
     -_id
+
+-USER (el administrador)
+    -
+
+HACEMOS LAS RELACIONES VIRTUALES ENTRE LOS SCHEMAS.
+
 */
