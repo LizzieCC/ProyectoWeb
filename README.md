@@ -26,9 +26,7 @@ Los administradores podrán realizar las siguientes acciones:
 * Modificar Pregunta <<<???
 
 Cualquier usuario podrá realizar las siguientes acciones:
-* Consultar todas las preguntas
 * Consultar preguntas por tema
-* Consultar todos los temas
 * Consultar temas por materia
 * Consultar todas las materias
 
