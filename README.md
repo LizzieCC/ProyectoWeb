@@ -16,7 +16,6 @@ Los administradores deberán autentificarse para poder realizar cualquier cambio
 Las preguntas están libres, cualquiera puede accederlas por lo que no será necesario autentificarse.
 
 ## Funcionalidades
-### Administradores
 Los administradores podrán realizar las siguientes acciones:
 * Agregar Materia
 * Eliminar Materia
