@@ -5,11 +5,11 @@ const jwt = require('jsonwebtoken')
 
 if(process.env.NODE_ENV === 'production'){
         var SECRET = process.env.SECRET;
-    }
-    else{
-        const config = require('../config.js')
-        var SECRET = config.secret;
-    }
+}
+else{
+    const config = require('../config.js')
+    var SECRET = config.secret;
+}
 
 
 const userSchema = new mongoose.Schema({
