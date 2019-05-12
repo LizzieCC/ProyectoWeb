@@ -16,18 +16,18 @@ router.post('/users/login', users.login)
 router.post('/users/logout', auth, users.logout)
 
 //Get User lists
-router.get('/users', auth, users.getUser)
-router.delete('/users', auth, users.deleteUser)
-router.patch('/users', auth, users.updateUser)
+//router.get('/users', auth, users.getUser)
+//router.delete('/users', auth, users.deleteUser)
+//router.patch('/users', auth, users.updateUser)
 
 //Create Users
 router.post('/users', users.createUser)
 
 //SUBJECT (Materias)
 //Create subject
-
+router.post('/subjects',subjects.createSubject)
 //Delete subject
-
+router.delete('/subjects',subjects.deleteSubject)
 //Update subject
 
 //Get all subjects
