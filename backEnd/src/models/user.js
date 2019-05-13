@@ -4,11 +4,11 @@ const bcrypt = require('bcryptjs')
 const jwt = require('jsonwebtoken')
 
 if(process.env.NODE_ENV === 'production'){
-        var SECRET = process.env.SECRET;
+        var secret = process.env.SECRET;
 }
 else{
     const config = require('../config.js')
-    var SECRET = config.secret;
+    var secret = config.secret;
 }
 
 
@@ -39,7 +39,24 @@ const userSchema = new mongoose.Schema({
         required: true
         }
     }]
+},{
+  toObject: {
+    virtuals: true
+  },
+  toJSON: {
+    virtuals: true 
+  }
 })
+
+userSchema.methods.toJSON = function() {
+  const user = this
+  const userObject = user.toObject()
+
+  delete userObject.password
+  delete userObject.tokens
+
+  return userObject
+}
 
 userSchema.statics.findByCredentials = function(email, password) {
     return new Promise( function(resolve, reject) {
