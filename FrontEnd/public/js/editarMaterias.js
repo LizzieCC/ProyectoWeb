@@ -1,17 +1,5 @@
 var Materias = [];
 
-$("#checkEditar").prop( "checked", false );
-
-$(".switch").find("input[type=checkbox]").on("change",function() {
-    var status = $(this).prop('checked');
-    if(!status){
-        //If it is checked, show the delete buttons
-        $('.secondary-content').addClass("hidden");
-    }
-    else{
-        $('.secondary-content').removeClass("hidden");
-    }
-});
 
 $('.secondary-content').click(function(){
 });
@@ -55,5 +43,41 @@ function loadSubjects() {
 
   function displaySubject(id, i, name) {
     Materias.push(id);
-    $('#listMaterias').append('<li class="collection-item" value="'+i+'"><div>'+name+'<a href="#!" class="secondary-content hidden" id="deleteIcon"><i class="material-icons red-text text-darken-4" onclick="editElement(this)">edit</i></a></div></li>');
+    $('#listMaterias').append('<li class="collection-item" value="'+i+'"><div class="input-field"><input placeholder="'+name+'"id="materia" type="text"></input><a href="#!" class="secondary-content" id="deleteIcon"><i class="material-icons red-text text-darken-4" onclick="editElement(this)">edit</i></a></div></li>');
+  }
+
+
+  //Agregar Materia
+function editElement(element){
+    let nombre = $(element).parent().parent().find('#materia').val()
+    
+    if(nombre == ""){
+        M.toast({html: 'Ups, no hiciste ningún cambio.'})
+        return
+    }
+
+    let mKey = Materias[$(element).parent().parent().parent().val()];
+    
+    json_to_send = {
+      "name" : nombre
+    };
+  
+    json_to_send = JSON.stringify(json_to_send);
+  
+    $.ajax({
+      url: 'https://preparatemas.herokuapp.com/subjects/'+mKey,
+      headers: {
+          'Content-Type':'application/json',
+          'Authorization': 'Bearer ' + token
+      },
+      method: 'PATCH',
+      dataType: 'json',
+      data: json_to_send,
+      success: function(data){
+        loadSubjects();
+      },
+      error: function(error_msg) {
+        alert((error_msg['responseText']));
+      }
+    });
   }

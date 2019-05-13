@@ -33,7 +33,7 @@ router.get('/getQuestions/:name',auth,questions.getQuestions)//Get Questions by 
 //HANDLE ERRORS---------------------------------
 router.get('*', function(req, res) {
   res.send({
-    error: 'This route does not exist, try /users or /todos'
+    error: 'This route does not exist, try login in or ask an admin to sign u up ;)'
   })
 })
 
