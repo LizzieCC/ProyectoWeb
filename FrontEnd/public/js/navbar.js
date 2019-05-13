@@ -43,7 +43,6 @@ $('#logOut').on('click', function(){
       window.location = './index.html'
     },
     error: function(error_msg) {
-      console.log(token);
       alert((error_msg["responseText"]));
     }
   });

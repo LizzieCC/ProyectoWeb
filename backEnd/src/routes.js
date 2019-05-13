@@ -12,7 +12,7 @@ router.all('*', cors())
 //USERS ADMINISTRATION-------------------------
 router.post('/users/login', users.login)
 router.post('/users/logout', auth, users.logout)
-router.post('/users', users.createUser) //Create Users
+router.post('/users', auth,users.createUser) //Create Users
 
 //SUBJECT (Materias)
 router.post('/subjects',auth,subjects.createSubject) //Create subject
