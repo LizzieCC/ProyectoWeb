@@ -8,7 +8,7 @@ const subjectSchema = new mongoose.Schema({
     }
 })
 
-userSchema.virtual('hasQuestions', {
+subjectSchema.virtual('hasQuestions', {
     ref: 'Question',
     localField: 'name',
     foreignField: 'materia'
