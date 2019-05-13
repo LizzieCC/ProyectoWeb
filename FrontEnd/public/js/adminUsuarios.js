@@ -1,3 +1,8 @@
+var token = localStorage.getItem('token');
+if (token) {
+  token = token.replace(/^"(.*)"$/, '$1'); // Remove quotes from token start/end.
+}
+
 var Usuarios = [];
 
 $("#checkEliminar").prop( "checked", false );
@@ -24,7 +29,7 @@ loadUsers();
 
 //Load Users
 function loadUsers() {
-    var token = localStorage.getItem('token');
+    Usuarios = [];
     $('#listUsuarios').empty();
     $("#checkEliminar").prop( "checked", false );
 
@@ -56,7 +61,6 @@ function loadUsers() {
   }
 
   function deleteElement(element){
-    var token = localStorage.getItem('token');
     let uKey = Usuarios[$(element).parent().parent().parent().val()];
     
     console.log(uKey);
@@ -77,3 +81,41 @@ function loadUsers() {
       }
     });
   }
+
+  //Agregar usuario
+  $('#agregarUsuario').on('click',function(){
+    var name = $("#name").val();
+    var password = $("#password").val();
+    var email = $("#email").val();
+    console.log('si llego aqui ')
+    json_to_send = {
+      "name":name,
+      "email": email,
+      "password" : password
+    };
+    
+    json_to_send = JSON.stringify(json_to_send);
+    console.log(json_to_send);
+    
+    $.ajax({
+      url: 'http://localhost:3000/users',
+      //url: 'https://examenfinallizzie.herokuapp.com/users/login',
+      headers: {
+          'Content-Type':'application/json',
+          'Authorization': 'Bearer ' + token
+      },
+      method: 'POST',
+      dataType: 'json',
+      data: json_to_send,
+      success: function(data){
+        $("#name").val('')
+        $("#email").val('')
+        $("#password").val('')
+        loadUsers()
+      },
+      error: function(error_msg) {
+        alert((error_msg["responseText"]));
+      }
+    });
+
+  })
