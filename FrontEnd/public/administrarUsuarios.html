@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title>Preparate+</title>
+
+    <link rel="shortcut icon" type="image/png" href="./img/fav.png"/>
+
+    <!--Import Google Icon Font-->
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <link rel="stylesheet" href="./css/master.css">
+    <!--Let browser know website is optimized for mobile-->
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  </head>
+  <body>
+
+    <!-- SIDENAV -->
+        <ul id="slide-out" class="sidenav sidenav-fixed">
+          <li><img src="./img/LogoBlanco.png" alt="Preparate+" class="logo"></li>
+          <!-- <li><div class="divider"></div></li> -->
+          <li><a href="agregarPregunta.html" class="waves-effect"><i class="material-icons">dashboard</i>Agregar pregunta</a></li>
+          <li>
+            <ul class="collapsible">
+              <li>
+                <div class="collapsible-header waves-effect"><i class="material-icons">create</i>Administrar contenido</div>
+                <div class="collapsible-body">
+                  <ul>
+                    <li><a href="administrarMaterias.html" class="waves-effect">Materias</a></li>
+                    <li><a href="administrarPreguntas.html" class="waves-effect">Preguntas</a></li>
+                  </ul>
+                </div>
+              </li>
+            </ul>
+          </li>
+          <li><a href="administrarUsuarios.html" class="waves-effect"><i class="material-icons">dashboard</i>Administrar usuarios</a></li>
+          <li><a href="#" class="waves-effect" id="logOut"><i class="material-icons">power_settings_new</i>Cerrar sesión</a></li>
+
+        </ul>
+
+        <!-- MAIN CONTENT -->
+        <div class="mainContent grey lighten-5">
+
+          <header>
+            <div class="hamburguerMenu valign-wrapper">
+              <a href="#" data-target="slide-out" class="top-nav sidenav-trigger full hide-on-large-only"><i class="material-icons">menu</i> Menú</a>
+            </div>
+            <h3>administrar</h3>
+            <h1>Usuarios</h1>
+          </header>
+
+          <div class="container">
+            <div class="row">
+                <blockquote>
+                    Aquí puedes ver todas las usuarios dados de alta, también puedes eliminarlas. <br> 
+                    <b><span class="red-text text-darken-4">Ten cuidado al eliminarlos</span></b>, ya que se les quitará por completo el acceso.
+                  </blockquote>
+            </div>
+
+            <div class="row">
+              <!-- Switch -->
+              <div class="switch right">
+                <label>
+                  Activar la opción de eliminar usuarios
+                  <input type="checkbox" id="checkEliminar">
+                  <span class="lever"></span>
+                </label>
+              </div>
+            </div>
+
+            <div class="row">
+                <ul class="collection with-header" id="listUsuarios">
+                  </ul>
+            </div>
+          </div>
+
+          <!-- FOOTER -->
+          <footer class="page-footer teal darken-1">
+            <div class="container">
+              <div class="row">
+                <div class="col l6 s12">
+                  <p class="grey-text text-lighten-4">Preparate+ es un proyecto desarollado por alumnos del Tecnológico de Monterrey, Campus Monterrey.</p>
+                </div>
+                <!-- <div class="col l4 offset-l2 s12">
+                  <h5 class="white-text">Links</h5>
+                  <ul>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 1</a></li>
+                    <li><a class="grey-text text-lighten-3" href="#!">Link 2</a></li>
+                  </ul>
+                </div> -->
+              </div>
+            </div>
+            <div class="footer-copyright">
+              <div class="container">
+              © 2019 Desarrollado por <a href="#" class="grey-text text-lighten-4">PurpleDots</a>
+              </div>
+            </div>
+          </footer>
+
+          <!-- END OF MAIN CONTENT -->
+        </div>
+
+      
+
+      <!-- SCRIPTS -->
+    <script   src="https://code.jquery.com/jquery-3.4.1.js"   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   crossorigin="anonymous"></script>
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+      <script src="./js/navbar.js" charset="utf-8"></script>
+      <script src="./js/adminUsuarios.js" charset="utf-8"></script>
+
+  </body>
+</html>
