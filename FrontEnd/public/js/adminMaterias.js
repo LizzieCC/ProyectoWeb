@@ -22,6 +22,7 @@ function deleteElement(element){
 
 }
 
+loadSubjects();
 
 //Load Materias
 function loadSubjects() {
@@ -41,10 +42,9 @@ function loadSubjects() {
         console.log(data)
   
         for( let i = 0; i < data.length; i++) {
-          // aqui va su código para agregar los elementos de la lista
-          console.log(data[i].description)
-          // algo asi:
-          //addTodo(data[i]._id, data[i].description, data[i].completed)
+          console.log(data[i].name)
+          
+          addSubject(data[i]._id, data[i].name)
         }
       },
       error: function(error_msg) {
@@ -52,3 +52,8 @@ function loadSubjects() {
       }
     });
   }
+
+  function addSubject(id, name) {
+    $('#listMaterias').append('<li class="collection-item" value='+id+'><div>'+name+'<a href="#!" class="secondary-content hidden" id="deleteIcon"><i class="material-icons red-text text-darken-4" onclick="deleteElement(this)">delete</i></a></div></li>');
+  }
+  
