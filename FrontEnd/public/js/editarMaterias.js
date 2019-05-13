@@ -31,7 +31,7 @@ function loadSubjects() {
     $("#checkEliminar").prop( "checked", false );
 
     $.ajax({
-      url: 'http://localhost:3000/subjects',
+      url: 'https://preparatemas.herokuapp.com/subjects',
       //url: 'https://examenfinal818821.herokuapp.com/todos',
       headers: {
           'Content-Type':'application/json',

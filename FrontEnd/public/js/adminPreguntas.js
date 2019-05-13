@@ -18,7 +18,7 @@ function loadSubjects() {
     $("#checkEliminar").prop( "checked", false );
 
     $.ajax({
-      url: 'http://localhost:3000/subjects',
+      url: 'https://preparatemas.herokuapp.com/subjects',
       //url: 'https://examenfinal818821.herokuapp.com/todos',
       headers: {
           'Content-Type':'application/json',
@@ -43,7 +43,7 @@ function setSubjects(data){
         $('#listMaterias').append('<h4 class="block">'+data.name+'</h4><ul class="collapsible" id="'+data.name+'"></ul>')
 
         $.ajax({
-            url: 'http://localhost:3000/getQuestions/' + data.name,
+            url: 'https://preparatemas.herokuapp.com/getQuestions/' + data.name,
             //url: 'https://examenfinal818821.herokuapp.com/todos',
             headers: {
                 'Content-Type':'application/json',
@@ -94,7 +94,7 @@ function deleteElement(element){
     console.log(id);
     
     $.ajax({
-      url: 'http://localhost:3000/deleteQuestion/' + id,
+      url: 'https://preparatemas.herokuapp.com/deleteQuestion/' + id,
       headers: {
           'Content-Type':'application/json',
           'Authorization': 'Bearer ' + token

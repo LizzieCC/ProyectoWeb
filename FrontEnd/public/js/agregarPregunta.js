@@ -6,7 +6,7 @@ function loadSubjects() {
     $("#checkEliminar").prop( "checked", false );
 
     $.ajax({
-      url: 'http://localhost:3000/subjects',
+      url: 'https://preparatemas.herokuapp.com/subjects',
       headers: {
           'Content-Type':'application/json',
           'Authorization': 'Bearer ' + token
@@ -98,7 +98,7 @@ function add(){
      
     console.log(json_to_send)
      $.ajax({
-        url: 'http://localhost:3000/createQuestion',
+        url: 'https://preparatemas.herokuapp.com/createQuestion',
         headers: {
             'Content-Type':'application/json',
             'Authorization': 'Bearer ' + token

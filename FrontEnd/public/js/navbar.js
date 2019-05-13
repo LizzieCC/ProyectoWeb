@@ -31,7 +31,7 @@ if (token) {
 $('#logOut').on('click', function(){
   // cargar email y password  
   $.ajax({
-    url: 'http://localhost:3000/users/logout',
+    url: 'https://preparatemas.herokuapp.com/users/logout',
     //url: 'https://examenfinallizzie.herokuapp.com/users/login',
     headers: {
         'Content-Type':'application/json',

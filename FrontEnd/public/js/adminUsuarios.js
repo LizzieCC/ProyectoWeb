@@ -34,7 +34,7 @@ function loadUsers() {
     $("#checkEliminar").prop( "checked", false );
 
     $.ajax({
-      url: 'http://localhost:3000/users',
+      url: 'https://preparatemas.herokuapp.com/users',
       headers: {
           'Content-Type':'application/json',
           'Authorization': 'Bearer ' + token
@@ -66,7 +66,7 @@ function loadUsers() {
     console.log(uKey);
     
     $.ajax({
-      url: 'http://localhost:3000/users/' + uKey,
+      url: 'https://preparatemas.herokuapp.com/users/' + uKey,
       headers: {
           'Content-Type':'application/json',
           'Authorization': 'Bearer ' + token
@@ -98,7 +98,7 @@ function loadUsers() {
     console.log(json_to_send);
     
     $.ajax({
-      url: 'http://localhost:3000/users',
+      url: 'https://preparatemas.herokuapp.com/users',
       //url: 'https://examenfinallizzie.herokuapp.com/users/login',
       headers: {
           'Content-Type':'application/json',

@@ -32,7 +32,7 @@ function loadSubjects() {
     $("#checkEliminar").prop( "checked", false );
 
     $.ajax({
-      url: 'http://localhost:3000/subjects',
+      url: 'https://preparatemas.herokuapp.com/subjects',
       //url: 'https://examenfinal818821.herokuapp.com/todos',
       headers: {
           'Content-Type':'application/json',
@@ -65,7 +65,7 @@ function loadSubjects() {
     let mKey = Materias[$(element).parent().parent().parent().val()];
     
     $.ajax({
-      url: 'http://localhost:3000/subjects/' + mKey,
+      url: 'https://preparatemas.herokuapp.com/subjects/' + mKey,
       headers: {
           'Content-Type':'application/json',
           'Authorization': 'Bearer ' + token
@@ -92,7 +92,7 @@ function addSubject(){
   json_to_send = JSON.stringify(json_to_send);
 
   $.ajax({
-    url: 'http://localhost:3000/subjects',
+    url: 'https://preparatemas.herokuapp.com/subjects',
     headers: {
         'Content-Type':'application/json',
         'Authorization': 'Bearer ' + token

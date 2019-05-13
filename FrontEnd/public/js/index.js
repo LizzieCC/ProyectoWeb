@@ -10,7 +10,7 @@ $('#login_button').on('click', function(){
     
     json_to_send = JSON.stringify(json_to_send);
     $.ajax({
-      url: 'http://localhost:3000/users/login',
+      url: 'https://preparatemas.herokuapp.com/users/login',
       //url: 'https://examenfinallizzie.herokuapp.com/users/login',
       headers: {
           'Content-Type':'application/json'
