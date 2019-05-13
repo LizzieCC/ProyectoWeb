@@ -35,10 +35,24 @@ const getSubjects = function(req,res){
 }
 
 //Update subject
+const updateSubject = function(req,res){
+    const _id = req.params.id
+    const updates = Object.keys(req.body)
+    Subject.findByIdAndUpdate(_id,req.body).then(function(subject){
+        if(!subject){
+            return res.status(404).send({ error: `Subject with id ${_id} not found.`})
+        }
+        return res.send(subject)
+    }).catch(function(error){
+        res.status(500).send({error:error})
+    })
+}
+
 
 //Export
 module.exports = {
     createSubject : createSubject,
     deleteSubject : deleteSubject,
-    getSubjects : getSubjects
+    getSubjects : getSubjects,
+    updateSubject : updateSubject
 }

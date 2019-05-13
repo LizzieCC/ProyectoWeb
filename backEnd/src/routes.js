@@ -17,15 +17,15 @@ router.post('/users', users.createUser) //Create Users
 //SUBJECT (Materias)
 router.post('/subjects',auth,subjects.createSubject) //Create subject
 router.delete('/subjects/:id',auth,subjects.deleteSubject) //Delete subject
-//Update subject
+router.patch('/subjects/:id',auth,subjects.updateSubject) //Update subject
 router.get('/subjects',auth,subjects.getSubjects) //Get all subjects
 
 
 //QUESTIONS------------------------------------
-//Add question
-//Delete Question
-//Update Question
-//Get Questions by topic
+router.post('/createQuestion',auth,questions.createQuestion) //Add question
+router.delete('/deleteQuestion',auth,questions.deleteQuestion) //Delete Question
+router.patch('/updateQuestion/:id',auth,questions.updateQuestion)//Update Question
+//Get Questions by subject
 
 //HANDLE ERRORS---------------------------------
 router.get('*', function(req, res) {

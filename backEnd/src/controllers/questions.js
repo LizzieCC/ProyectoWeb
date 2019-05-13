@@ -24,5 +24,27 @@ const deleteQuestion = function(req,res){
 }
 
 //Update question
+const updateQuestion = function(req,res){
+    const _id = req.params.id
+    Question.findByIdAndUpdate(_id,req.body).then(function(question){
+        if(!question){
+            return res.status(404).send({ error: `Question with id ${_id} not found.`})
+        }
+        return res.send(question)
+    }).catch(function(error){
+        res.status(500).send({error:error})
+    })
+}
 
-//Get question
+//Get questions by subject
+//const getQuestions = function(req,res){
+//    const subject = req.params.
+//
+//}
+
+
+module.exports = {
+    createQuestion : createQuestion,
+    deleteQuestion : deleteQuestion,
+    updateQuestion : updateQuestion
+}

@@ -17,17 +17,17 @@ Las preguntas están libres, cualquiera puede accederlas por lo que no será nec
 
 ## Funcionalidades
 Los administradores podrán realizar las siguientes acciones:
+* Log in
+* Log out
+* Crear administradores
 * Agregar Materia
 * Eliminar Materia
 * Modificar Materia
+* Consultar todas las materias
 * Agregar Pregunta
 * Eliminar Pregunta
-* Modificar Pregunta <<<???
-
-Cualquier usuario podrá realizar las siguientes acciones:
+* Modificar Pregunta
 * Consultar preguntas por materia
-* Consultar todas las materias
-
 
 ## Estructura de los esquemas
 Hay 3 esquemas diferentes:

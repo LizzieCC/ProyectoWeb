@@ -3,11 +3,7 @@ const mongoose = require('mongoose')
 const questionSchema = new mongoose.Schema({
     pregunta: {
         type: String,
-        required: true,
-        unique: true
-    },
-    descripcion: {
-        type: String
+        required: true
     },
     imagenDeApoyo:{
         type: String
