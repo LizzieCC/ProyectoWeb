@@ -8,6 +8,18 @@ const getUsers = function(req, res) {
   })
 }
 
+//Get a user
+const getUser = function(req,res){
+  User.findById(req.user._id).then(function(user){
+    if(!user){
+      return res.status(404).send({error:`Este usuario no existe aún`})
+    }
+
+  }).catch(function(error){
+
+  })
+}
+
 //Login 
 const login = function(req, res) {
     User.findByCredentials(req.body.email, req.body.password).then(function(user){
@@ -43,10 +55,25 @@ const createUser = function(req,res){
     })
 }
 
+//Delete User 
+const deleteUser = function(req,res){
+  const _id = req.params.id
+  User.findByIdAndDelete(_id).then(function(user){
+    console.log(user)
+    if(!user){
+      return res.status(404).send({error:`Este usuario no existe aún`})
+    }
+    return res.send(user)
+  }).catch(function(error){
+    res.status(505).send({error:error})
+  })
+}
+
 
 module.exports = {
   getUsers : getUsers,
   login : login,
   logout : logout,
-  createUser : createUser
+  createUser : createUser,
+  deleteUser : deleteUser
 }

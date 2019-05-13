@@ -13,6 +13,9 @@ router.all('*', cors())
 router.post('/users/login', users.login)
 router.post('/users/logout', auth, users.logout)
 router.post('/users', auth,users.createUser) //Create Users
+router.get('/users',auth,users.getUsers)
+router.get('/users',auth,users.getUsers)
+router.delete('/users/:id',auth,users.deleteUser)
 
 //SUBJECT (Materias)
 router.post('/subjects',auth,subjects.createSubject) //Create subject
@@ -25,7 +28,7 @@ router.get('/subjects',auth,subjects.getSubjects) //Get all subjects
 router.post('/createQuestion',auth,questions.createQuestion) //Add question
 router.delete('/deleteQuestion/:id',auth,questions.deleteQuestion) //Delete Question
 router.patch('/updateQuestion/:id',auth,questions.updateQuestion)//Update Question
-router.get('getQuestions/:name',auth,questions.getQuestions)//Get Questions by subject
+router.get('/getQuestions/:name',auth,questions.getQuestions)//Get Questions by subject
 
 //HANDLE ERRORS---------------------------------
 router.get('*', function(req, res) {
