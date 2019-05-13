@@ -51,16 +51,6 @@ Este es el listado principal de materias que existen
 }
 ```
 
-
-### Temas
-Cada Tema le pertenece a una Materia.
-```
-{
-  name: string,
-  materia: Materia
-}
-```
-
 ### Preguntas
 Se tratan de preguntas de opción múltiple. Cada pregunta le pertenece a un tema.
 ```
@@ -74,7 +64,7 @@ Se tratan de preguntas de opción múltiple. Cada pregunta le pertenece a un tem
   respuesta: char (A || B || C),
   explicacion: string,
   imagenDeExplicacion: url,
-  tema: Tema 
+  materia: Materia 
 }
 ```
 

@@ -5,7 +5,6 @@ const createSubject = function(req,res){
     const subject = new Subject({
         name: req.body.name
     })
-    console.log(subject)
     subject.save().then(function(){
         return res.send(subject)
     }).catch(function(error){
@@ -13,7 +12,7 @@ const createSubject = function(req,res){
     })
 }
 
-//Delete subject
+//Delete subject //FALTA ELIMINAR PREGUNTAS 
 const deleteSubject = function(req,res){
     const _id = req.params.id
     Subject.findOneAndDelete({_id: req.params.id}).then(function(subject){
