@@ -22,3 +22,24 @@
     });
 });
 
+//LOGOUT
+$('#logOut').on('click', function(){
+  // cargar email y password  
+  $.ajax({
+    url: 'http://localhost:3000/users/logout',
+    //url: 'https://examenfinallizzie.herokuapp.com/users/login',
+    headers: {
+        'Content-Type':'application/json',
+        'Authorization': 'Bearer ' + token
+    },
+    method: 'POST',
+    dataType: 'json',
+    success: function(data){
+      // guardar token en localstorage o cookie
+      window.location = './login.html'
+    },
+    error: function(error_msg) {
+      alert((error_msg["responseText"]));
+    }
+  });
+})
