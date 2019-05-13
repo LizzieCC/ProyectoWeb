@@ -1,20 +1,18 @@
 $('#login_button').on('click', function(){
-    console.log('aqui entre perro');
     // cargar email y password
     var password = $("#password").val();
     var email = $("#email").val();
-    console.log(email);
-  
+    
     json_to_send = {
       "email": email,
       "password" : password
     };
-  
+    
     json_to_send = JSON.stringify(json_to_send);
-  
+    console.log(json_to_send)
     $.ajax({
-      //url: 'http://localhost:3000/users/login',
-      url: 'https://examenfinallizzie.herokuapp.com/users/login',
+      url: 'http://localhost:3000/users/login',
+      //url: 'https://examenfinallizzie.herokuapp.com/users/login',
       headers: {
           'Content-Type':'application/json'
       },
@@ -23,10 +21,13 @@ $('#login_button').on('click', function(){
       data: json_to_send,
       success: function(data){
         // guardar token en localstorage o cookie
+        console.log('ajax wee')
         localStorage.setItem('token', data.token)
         window.location = './dashboard.html'
+        
       },
       error: function(error_msg) {
+        console.log('nah')
         alert((error_msg["responseText"]));
       }
     });
