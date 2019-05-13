@@ -1,6 +1,17 @@
 //Load Materias
 loadSubjects();
 
+$(".switch").find("input[type=checkbox]").on("change",function() {
+    var status = $(this).prop('checked');
+    if(!status){
+        //If it is checked, show the delete buttons
+        $('.secondary-content').addClass("hidden");
+    }
+    else{
+        $('.secondary-content').removeClass("hidden");
+    }
+});
+
 function loadSubjects() {
     var token = localStorage.getItem('token');
     $('#listMaterias').empty();
@@ -28,7 +39,7 @@ function loadSubjects() {
   }
 
 //Show users in html page
-function setSubjects(data){    
+function setSubjects(data){
         $('#listMaterias').append('<h4 class="block">'+data.name+'</h4><ul class="collapsible" id="'+data.name+'"></ul>')
 
         $.ajax({
@@ -55,21 +66,49 @@ function setSubjects(data){
 }
 
 function setQuestions(data, materia){
-    $('#'+materia+'').append(
-        '<li id="'+data._id+'"><div class="collapsible-header"><i class="material-icons">book</i>'+data.pregunta+ 
-        '</div><div id="body" class="collapsible-body">'+
-        '<p>Imagen de Pregunta: <img src="'+data.imagenDeApoyo+'" alt="Smiley face" height="42" width="42"></p>'+
-        '<p>Tema: '+data.tema+'</p>'+
-        '<p>Opción A: '+data.opcionA+
-        '<br>Opción B: '+data.opcionB+
-        '<br>Opción C: '+data.opcionC+ '</p>'+
-        '<p>Respuesta: '+data.respuesta+'</p>'
-        +'</div></li>')
-    $('.collapsible').collapsible();
+    
+        $('#'+materia+'').append(
+            '<li id="'+data._id+'"><div class="collapsible-header"><i class="material-icons">book</i>'+data.pregunta+ 
+            '</div><div id="body" class="collapsible-body">'+
+            '<p>Imagen de Pregunta: <img src="'+data.imagenDeApoyo+'" alt="" height="42"></p>'+
+            '<p>Tema: '+data.tema+'</p>'+
+            '<p>Opción A: '+data.opcionA+
+            '<br>Opción B: '+data.opcionB+
+            '<br>Opción C: '+data.opcionC+ '</p>'+
+            '<p>Respuesta: '+data.respuesta+'</p>'+
+            '<p>Explicación: '+data.explicacion+'</p>'+
+            '<p>Imagen de Explicación: <img src="'+data.imagenExplicativa+'" alt="" height="42"></p>'+
+            '<a href="#!" class="secondary-content hidden" id="deleteIcon"><i class="material-icons red-text text-darken-4" onclick="deleteElement(this)">delete</i></a>'
+            +'</div></li>')
 
-
+            $('.collapsible').collapsible();
+    
 }
 
+
+//Eliminar Pregunta
+function deleteElement(element){
+    var token = localStorage.getItem('token');
+    let id = $(element).parent().parent().parent().attr('id');
+
+    console.log(id);
+    
+    $.ajax({
+      url: 'http://localhost:3000/deleteQuestion/' + id,
+      headers: {
+          'Content-Type':'application/json',
+          'Authorization': 'Bearer ' + token
+      },
+      method: 'DELETE',
+      dataType: 'json',
+      success: function(){
+        loadSubjects();
+      },
+      error: function(error_msg) {
+        alert((error_msg['responseText']));
+      }
+    });
+  }
 
 
 $(document).ready(function(){
