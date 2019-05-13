@@ -9,7 +9,6 @@ $('#login_button').on('click', function(){
     };
     
     json_to_send = JSON.stringify(json_to_send);
-    console.log(json_to_send)
     $.ajax({
       url: 'http://localhost:3000/users/login',
       //url: 'https://examenfinallizzie.herokuapp.com/users/login',
@@ -21,13 +20,11 @@ $('#login_button').on('click', function(){
       data: json_to_send,
       success: function(data){
         // guardar token en localstorage o cookie
-        console.log('ajax wee')
         localStorage.setItem('token', data.token)
         window.location = './dashboard.html'
         
       },
       error: function(error_msg) {
-        console.log('nah')
         alert((error_msg["responseText"]));
       }
     });
