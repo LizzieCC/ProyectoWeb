@@ -56,14 +56,14 @@ Se tratan de preguntas de opción múltiple. Cada pregunta le pertenece a un tem
 ```
 {
   pregunta: string,
-  descripcion: string,
   imagenDeApoyo: url,
   opcionA: string,
   opcionB: string,
   opcionC: string,
   respuesta: char (A || B || C),
   explicacion: string,
-  imagenDeExplicacion: url,
+  imagenExplicativa: url,
+  tema: string,
   materia: Materia 
 }
 ```
