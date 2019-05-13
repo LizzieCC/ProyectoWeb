@@ -28,7 +28,8 @@ loadSubjects();
 function loadSubjects() {
     var token = localStorage.getItem('token');
 
-    console.log(token);
+    $('#listMaterias').empty();
+    $("#checkEliminar").prop( "checked", false );
     $.ajax({
       url: 'http://localhost:3000/subjects',
       //url: 'https://examenfinal818821.herokuapp.com/todos',
@@ -44,7 +45,7 @@ function loadSubjects() {
         for( let i = 0; i < data.length; i++) {
           console.log(data[i].name)
           
-          addSubject(data[i]._id, data[i].name)
+          addSubject(data[i]._id, i, data[i].name)
         }
       },
       error: function(error_msg) {
@@ -53,7 +54,29 @@ function loadSubjects() {
     });
   }
 
-  function addSubject(id, name) {
-    $('#listMaterias').append('<li class="collection-item" value='+id+'><div>'+name+'<a href="#!" class="secondary-content hidden" id="deleteIcon"><i class="material-icons red-text text-darken-4" onclick="deleteElement(this)">delete</i></a></div></li>');
+  function addSubject(id, i, name) {
+    Materias.push(id);
+    $('#listMaterias').append('<li class="collection-item" value="'+i+'"><div>'+name+'<a href="#!" class="secondary-content hidden" id="deleteIcon"><i class="material-icons red-text text-darken-4" onclick="deleteElement(this)">delete</i></a></div></li>');
   }
   
+  function deleteElement(element){
+    var token = localStorage.getItem('token');
+    let mKey = Materias[$(element).parent().parent().parent().val()];
+    
+    $.ajax({
+      url: 'http://localhost:3000/subjects/' + mKey,
+      headers: {
+          'Content-Type':'application/json',
+          'Authorization': 'Bearer ' + token
+      },
+      method: 'DELETE',
+      dataType: 'json',
+      success: function(){
+        loadSubjects();
+      },
+      error: function(error_msg) {
+        alert((error_msg['responseText']));
+      }
+    });
+
+}
