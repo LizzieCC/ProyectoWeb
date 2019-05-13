@@ -12,7 +12,7 @@ const createSubject = function(req,res){
     })
 }
 
-//Delete subject //FALTA ELIMINAR PREGUNTAS 
+//Delete subject 
 const deleteSubject = function(req,res){
     const _id = req.params.id
     Subject.findOneAndDelete({_id: req.params.id}).then(function(subject){

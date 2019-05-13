@@ -79,8 +79,7 @@ function loadSubjects() {
         alert((error_msg['responseText']));
       }
     });
-
-}
+  }
 
 //Agregar Materia
 function addSubject(){

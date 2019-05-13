@@ -13,6 +13,9 @@ router.all('*', cors())
 router.post('/users/login', users.login)
 router.post('/users/logout', auth, users.logout)
 router.post('/users', auth,users.createUser) //Create Users
+router.get('/users',auth,users.getUsers)
+router.get('/users',auth,users.getUsers)
+router.delete('/users/:id',auth,users.deleteUser)
 
 //SUBJECT (Materias)
 router.post('/subjects',auth,subjects.createSubject) //Create subject
