@@ -38,7 +38,7 @@ const questionSchema = new mongoose.Schema({
     tema: {
         type: String
     },
-    Materia: {
+    materia: {
         type:  String,
         required: true
     }
