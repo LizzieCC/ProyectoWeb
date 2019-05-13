@@ -15,6 +15,7 @@ function loadSubjects() {
       dataType: 'json',
       success: function(data){
         setMaterias(data);
+        
       },
       error: function(error_msg) {
         alert((error_msg['responseText']));
@@ -109,6 +110,7 @@ function add(){
         success: function(data){
             $('#addQuestion').trigger("reset");
             scroll(0,0);
+            M.toast({html: 'Pregunta guardada'})
         },
         error: function(error_msg) {
         //   alert((error_msg['responseText']));
