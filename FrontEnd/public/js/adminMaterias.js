@@ -27,6 +27,7 @@ loadSubjects();
 //Load Materias
 function loadSubjects() {
     var token = localStorage.getItem('token');
+    Materias = [];
     $('#listMaterias').empty();
     $("#checkEliminar").prop( "checked", false );
 

@@ -57,9 +57,17 @@ function setSubjects(data){
 function setQuestions(data, materia){
     $('#'+materia+'').append(
         '<li id="'+data._id+'"><div class="collapsible-header"><i class="material-icons">book</i>'+data.pregunta+ 
-        '</div><div id="body" class="collapsible-body"></div></li>')
+        '</div><div id="body" class="collapsible-body">'+
+        '<p>Imagen de Pregunta: <img src="'+data.imagenDeApoyo+'" alt="Smiley face" height="42" width="42"></p>'+
+        '<p>Tema: '+data.tema+'</p>'+
+        '<p>Opción A: '+data.opcionA+
+        '<br>Opción B: '+data.opcionB+
+        '<br>Opción C: '+data.opcionC+ '</p>'+
+        '<p>Respuesta: '+data.respuesta+'</p>'
+        +'</div></li>')
+    $('.collapsible').collapsible();
 
-        $('.collapsible').collapsible();
+
 }
 
 
