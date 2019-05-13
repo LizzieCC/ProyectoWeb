@@ -25,7 +25,7 @@ router.get('/subjects',auth,subjects.getSubjects) //Get all subjects
 router.post('/createQuestion',auth,questions.createQuestion) //Add question
 router.delete('/deleteQuestion/:id',auth,questions.deleteQuestion) //Delete Question
 router.patch('/updateQuestion/:id',auth,questions.updateQuestion)//Update Question
-router.get('getQuestions/:name',auth,questions.getQuestions)//Get Questions by subject
+router.get('/getQuestions/:name',auth,questions.getQuestions)//Get Questions by subject
 
 //HANDLE ERRORS---------------------------------
 router.get('*', function(req, res) {

@@ -58,6 +58,7 @@ function loadSubjects() {
     $('#listMaterias').append('<li class="collection-item" value="'+i+'"><div>'+name+'<a href="#!" class="secondary-content hidden" id="deleteIcon"><i class="material-icons red-text text-darken-4" onclick="deleteElement(this)">delete</i></a></div></li>');
   }
   
+  //Eliminar Materia
   function deleteElement(element){
     var token = localStorage.getItem('token');
     let mKey = Materias[$(element).parent().parent().parent().val()];
