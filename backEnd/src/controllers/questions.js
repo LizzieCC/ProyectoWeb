@@ -2,10 +2,7 @@ const Question = require('../models/question')
 
 //Create question
 const createQuestion = function(req,res){
-    const question = new Question({
-        name : true
-        //schema info
-    })
+    const question = new Question(req.body)
     question.save().then(function(){
         return res.send(question)
     }).catch(function(error){
