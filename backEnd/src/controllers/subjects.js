@@ -16,7 +16,6 @@ const createSubject = function(req,res){
 //Delete subject
 const deleteSubject = function(req,res){
     const _id = req.params.id
-    console.log(req.params.id)
     Subject.findOneAndDelete({_id: req.params.id}).then(function(subject){
         if(!subject){
             return res.status(404).send({error:`Materia con id ${_id} no encontrada`})
@@ -27,12 +26,20 @@ const deleteSubject = function(req,res){
     })
 }
 
-//Update subject
-
 //Get all subjects
+const getSubjects = function(req,res){
+    Subject.find({}).then(function(subjects){
+        res.send(subjects)
+    }).catch(function(error){
+        res.status(500).send(error)
+    })
+}
+
+//Update subject
 
 //Export
 module.exports = {
     createSubject : createSubject,
-    deleteSubject : deleteSubject
+    deleteSubject : deleteSubject,
+    getSubjects : getSubjects
 }
