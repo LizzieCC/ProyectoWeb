@@ -1,14 +1,27 @@
 const User = require('../models/user')
 
+const getUsers = function(req, res) {
+  User.find({}).then(function(users) {
+    res.send(users)
+  }).catch(function(error){
+    res.status(500).send(error)
+  })
+}
+
 //Login 
 const login = function(req, res) {
     User.findByCredentials(req.body.email, req.body.password).then(function(user){
+      console.log(user);
+      
       user.generateToken().then(function(token){
+        console.log('hago token');
         return res.send({user, token})
       }).catch(function(error){
+        console.log('no hago token');
         return res.status(401).send({ error: error })
       })
     }).catch(function(error) {
+      console.log('salto alv');
       return res.status(401).send({ error: error })
     })
   }
@@ -36,6 +49,7 @@ const createUser = function(req,res){
 }
 
 module.exports = {
+  getUsers : getUsers,
   login : login,
   logout : logout,
   createUser : createUser
