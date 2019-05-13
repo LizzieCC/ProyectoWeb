@@ -65,21 +65,13 @@
                     <label>Materia:*</label>
                   </div>
 
-                  <!-- SELECCIONA TEMA DE LA MATERIA -->
                   <div class="input-field col s12">
-                    <select id="selectTema" required>
-                      <option value="" disabled selected>Selecciona primero una materia</option>
-                    </select>
-                    <label>Tema:*</label>
-                  </div>
-
-                  <div class="input-field col s12">
-                    <input id="subtema" type="text" class="validate">
-                    <label for="subtema">Subtema</label>
+                    <input id="tema" type="text" class="validate">
+                    <label for="tema">Tema</label>
                   </div>
                 </div>
 
-
+                  
                 <!-- DATOS DE LA PREGUNTA -->
                 <div class="row">
                   <div class="input-field col s12">
@@ -102,8 +94,8 @@
                   </div>
 
                   <div class="input-field col s12">
-                    <input id="exp_text" type="text" class="validate">
-                    <label for="exp_text">Descripción de la pregunta</label>
+                    <input id="exp_text" type="text" class="validate" required>
+                    <label for="exp_text">Explicación del procedimiento*</label>
                   </div>
                 </div>
 
@@ -164,46 +156,26 @@
             </div>
           </div>
 
-
-
-          <!-- FOOTER -->
-          <footer class="page-footer teal darken-1">
-            <div class="container">
-              <div class="row">
-                <div class="col l6 s12">
-                  <p class="grey-text text-lighten-4">Preparate+ es un proyecto desarollado por alumnos del Tecnológico de Monterrey, Campus Monterrey.</p>
-                </div>
-              </div>
-            </div>
-            <div class="footer-copyright">
-              <div class="container">
-              © 2019 Desarrollado por <a href="#" class="grey-text text-lighten-4">PurpleDots</a>
-              </div>
-            </div>
-          </footer>
-
           <!-- END OF MAIN CONTENT -->
         </div>
 
-
+        <!-- FOOTER -->
+        <footer class="page-footer teal darken-1">
+          <div class="container">
+            <div class="row">
+              <div class="col l6 s12">
+                <p class="grey-text text-lighten-4">Preparate+ es un proyecto desarollado por alumnos del Tecnológico de Monterrey, Campus Monterrey.</p>
+              </div>
+            </div>
+          </div>
+          <div class="footer-copyright">
+            <div class="container">
+            © 2019 Desarrollado por <a href="#" class="grey-text text-lighten-4">PurpleDots</a>
+            </div>
+          </div>
+        </footer>
 
         <script src="https://www.gstatic.com/firebasejs/5.10.0/firebase.js"></script>
-        <script>
-          // Initialize Firebase
-          var config = {
-            apiKey: "AIzaSyBfsPrlJaEes0mdEA-eNgiTPx56J1nbBXU",
-            authDomain: "preparate-mas.firebaseapp.com",
-            databaseURL: "https://preparate-mas.firebaseio.com",
-            projectId: "preparate-mas",
-            storageBucket: "preparate-mas.appspot.com",
-            messagingSenderId: "101797547516"
-          };
-          firebase.initializeApp(config);
-
-          //Fireabse references
-          const auth = firebase.auth();
-          var database = firebase.database();
-        </script>
 
       <!-- SCRIPTS -->
       <script   src="https://code.jquery.com/jquery-3.4.1.js"   integrity="sha256-WpOohJOqMqqyKL9FccASB9O0KwACQJpFTUBLTYOVvVU="   crossorigin="anonymous"></script>
