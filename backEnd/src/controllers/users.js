@@ -14,14 +14,11 @@ const login = function(req, res) {
       console.log(user);
       
       user.generateToken().then(function(token){
-        console.log('hago token');
         return res.send({user, token})
       }).catch(function(error){
-        console.log('no hago token');
         return res.status(401).send({ error: error })
       })
     }).catch(function(error) {
-      console.log('salto alv');
       return res.status(401).send({ error: error })
     })
   }
