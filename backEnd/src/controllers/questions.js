@@ -37,14 +37,19 @@ const updateQuestion = function(req,res){
 }
 
 //Get questions by subject
-//const getQuestions = function(req,res){
-//    const subject = req.params.
-//
-//}
+const getQuestions = function(req,res){
+    const subject = req.params.name
+    Question.find({materia: subject}).then(function(questions){
+        res.send(questions)
+    }).catch(function(error){
+        res.status(500).send(error)
+    })
+}
 
 
 module.exports = {
     createQuestion : createQuestion,
     deleteQuestion : deleteQuestion,
-    updateQuestion : updateQuestion
+    updateQuestion : updateQuestion,
+    getQuestions : getQuestions
 }
