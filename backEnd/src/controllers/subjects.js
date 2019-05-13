@@ -15,9 +15,9 @@ const createSubject = function(req,res){
 
 //Delete subject
 const deleteSubject = function(req,res){
-    const _id = req.params_id
-    console.log(req.params_id)
-    Subject.findOneAndDelete({_id: req.params_id}).then(function(subject){
+    const _id = req.params.id
+    console.log(req.params.id)
+    Subject.findOneAndDelete({_id: req.params.id}).then(function(subject){
         if(!subject){
             return res.status(404).send({error:`Materia con id ${_id} no encontrada`})
         }
