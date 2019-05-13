@@ -11,7 +11,7 @@ Las preguntas son de libre acceso, es decir, se pueden consultar sin necesidad d
 Para el alcance de este proyecto solo se desarrolló el sistema de administraciones y los end-point del backend para obtener las preguntas. No se desarolló un front-end para visualizar las preguntas ya que la app móvil en sí será la responsable de hacer dicha conexión.
 
 ## Seguridad
-Los administradores deberán autentificarse para poder realizar cualquier cambio en el contenido (Materias, Temas y Preguntas) del sistema.
+Los administradores deberán autentificarse para poder realizar cualquier cambio en el contenido (Materias y Preguntas) del sistema.
 
 Las preguntas están libres, cualquiera puede accederlas por lo que no será necesario autentificarse.
 
@@ -19,15 +19,13 @@ Las preguntas están libres, cualquiera puede accederlas por lo que no será nec
 Los administradores podrán realizar las siguientes acciones:
 * Agregar Materia
 * Eliminar Materia
-* Agregar Tema
-* Eliminar Tema
+* Modificar Materia
 * Agregar Pregunta
 * Eliminar Pregunta
 * Modificar Pregunta <<<???
 
 Cualquier usuario podrá realizar las siguientes acciones:
-* Consultar preguntas por tema
-* Consultar temas por materia
+* Consultar preguntas por materia
 * Consultar todas las materias
 
 

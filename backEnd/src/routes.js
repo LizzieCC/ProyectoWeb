@@ -3,7 +3,6 @@ const router = express.Router()
 
 const users = require('./controllers/users.js')
 const subjects = require('./controllers/subjects.js')
-const topics = require('./controllers/topics.js')
 const questions = require('./controllers/questions.js')
 const auth = require('./middleware/auth')
 
@@ -19,14 +18,8 @@ router.post('/users', users.createUser) //Create Users
 router.post('/subjects',auth,subjects.createSubject) //Create subject
 router.delete('/subjects/:id',auth,subjects.deleteSubject) //Delete subject
 //Update subject
-router.get('/subjects',auth,subjects.getSubjects) //Get all subjects
+router.get('/subjects',subjects.getSubjects) //Get all subjects
 
-
-//TOPICS
-//Create topic
-//Delete topic 
-//Update topic
-//Get all topics (by subject)
 
 //QUESTIONS------------------------------------
 //Add question
