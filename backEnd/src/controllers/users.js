@@ -11,8 +11,6 @@ const getUsers = function(req, res) {
 //Login 
 const login = function(req, res) {
     User.findByCredentials(req.body.email, req.body.password).then(function(user){
-      console.log(user);
-      
       user.generateToken().then(function(token){
         return res.send({user, token})
       }).catch(function(error){
