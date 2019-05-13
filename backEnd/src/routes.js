@@ -23,7 +23,7 @@ router.get('/subjects',auth,subjects.getSubjects) //Get all subjects
 
 //QUESTIONS------------------------------------
 router.post('/createQuestion',auth,questions.createQuestion) //Add question
-router.delete('/deleteQuestion',auth,questions.deleteQuestion) //Delete Question
+router.delete('/deleteQuestion/:id',auth,questions.deleteQuestion) //Delete Question
 router.patch('/updateQuestion/:id',auth,questions.updateQuestion)//Update Question
 router.get('getQuestions/:name',auth,questions.getQuestions)//Get Questions by subject
 
