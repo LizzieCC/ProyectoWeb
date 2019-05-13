@@ -21,6 +21,7 @@ $('#login_button').on('click', function(){
       success: function(data){
         // guardar token en localstorage o cookie
         localStorage.setItem('token', data.token)
+        console.log(data.token);
         window.location = './dashboard.html'
         
       },
