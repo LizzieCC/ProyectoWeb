@@ -73,7 +73,7 @@ function loadUsers() {
         loadUsers();
       },
       error: function(error_msg) {
-        alert((error_msg['este error meco']));
+        alert((error_msg['error']));
       }
     });
   }
