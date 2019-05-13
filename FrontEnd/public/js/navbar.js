@@ -1,3 +1,8 @@
+var token = localStorage.getItem('token');
+if (token) {
+  token = token.replace(/^"(.*)"$/, '$1'); // Remove quotes from token start/end.
+}
+
   //Materialize items initializer
   document.addEventListener('DOMContentLoaded', function() {
     var elems = document.querySelectorAll('.sidenav');
@@ -33,12 +38,12 @@ $('#logOut').on('click', function(){
         'Authorization': 'Bearer ' + token
     },
     method: 'POST',
-    dataType: 'json',
     success: function(data){
       // guardar token en localstorage o cookie
-      window.location = './login.html'
+      window.location = './index.html'
     },
     error: function(error_msg) {
+      console.log(token);
       alert((error_msg["responseText"]));
     }
   });
